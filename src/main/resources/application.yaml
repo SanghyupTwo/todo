@@ -17,3 +17,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+jwt:
+  secret: my-secret-key-for-jwt-token-project-2026-sanghyup
+  expiration: 3600000

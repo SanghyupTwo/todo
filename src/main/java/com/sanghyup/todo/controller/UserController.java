@@ -1,5 +1,6 @@
 package com.sanghyup.todo.controller;
 
+import com.sanghyup.todo.dto.user.LoginRequest;
 import com.sanghyup.todo.dto.user.SignupRequest;
 import com.sanghyup.todo.service.UserService;
 import jakarta.validation.Valid;
@@ -24,5 +25,13 @@ public class UserController {
         userService.signup(request);
 
         return ResponseEntity.ok("회원가입 성공");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@Valid @RequestBody LoginRequest request) {
+
+        String token = userService.login(request);
+
+        return ResponseEntity.ok(token);
     }
 }
